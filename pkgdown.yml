@@ -1,0 +1,11 @@
+pandoc: 2.7.3
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  installation: installation.html
+  introduction: introduction.html
+  terminology: terminology.html
+  usage: usage.html
+  workflow: workflow.html
+last_built: 2021-09-02T14:32Z
+
