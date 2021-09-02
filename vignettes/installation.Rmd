@@ -1,0 +1,45 @@
+---
+title: "Installation"
+date: "Last modified: `r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Installation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+This sections describes how to install the `{mapme.agriculture}` package. 
+Because the package handles some spatial data, we assume that you have
+a working installation of [GDAL](https://gdal.org/index.html) and [PROJ](https://proj.org/) 
+on your system. Please refer to the respective installation guides to learn about 
+how to install these programs on your OS.
+
+In order to be able to download data from the FAO [WaPOR API](https://wapor.apps.fao.org/home/WAPOR_2/1) make sure to register
+an account and create and API key that you should have at hand to identify
+your queries to the server.
+ 
+Installing the `{mapme.agriculture}` package is then achieved trough the following
+function call: 
+
+
+```{r installation, eval = F}
+remotes::install_github("mapme-initiative/mapme.agriculture")
+```
+
+The installation process will install potential missing R dependencies.
+After the successful installation, you are ready to use the package's 
+functionality. Simply load the package for your R session with the library
+call:
+
+```{r setup, eval = F}
+library(mapme.agriculture)
+```
+

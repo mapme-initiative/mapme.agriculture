@@ -1,0 +1,22 @@
+{
+  "description" : "WAPOR Seasonal Transpiration data set",
+  "references" : "https://wapor.apps.fao.org/home/WAPOR_2/1",
+  "tags" : ["FAO", "WAPOR", "T_S"],
+  "pattern" : ".+\\.tif",
+  "images" : {
+    "pattern" : ".*T_S.{1}_(.{4}_SEASON)\\.tif"
+  },
+  "datetime" : {
+    "pattern" : ".*T_S.{1}_(.{4})_SEASON\\.tif",
+    "format" : "%Y"
+  },
+  "bands": {
+    "TS1" : {
+      "pattern" : ".+_S1_.*"
+    },
+    "TS2" : {
+      "pattern" : ".+_S2_.*"
+    }
+  }
+}
+

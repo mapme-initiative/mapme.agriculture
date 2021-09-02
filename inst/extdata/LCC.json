@@ -1,0 +1,19 @@
+{
+  "description" : "WAPOR Land Cover Classification data set",
+  "references" : "https://wapor.apps.fao.org/home/WAPOR_2/1",
+  "tags" : ["FAO", "WAPOR", "LCC"],
+  "pattern" : ".+\\.tif",
+  "images" : {
+    "pattern" : ".*LCC_A_(.{4}_YEAR)\\.tif"
+  },
+  "datetime" : {
+    "pattern" : ".*LCC_A_(.{4})_YEAR\\.tif",
+    "format" : "%Y"
+  },
+  "bands": {
+    "LCC" : {
+      "pattern" : ".+LCC.*",
+      "nodata" : 255
+    }
+  }
+}

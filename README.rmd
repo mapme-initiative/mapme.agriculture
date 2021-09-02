@@ -1,0 +1,110 @@
+---
+title: "README2"
+author: "Darius Görgen"
+date: "8/22/2020"
+output: md_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(kableExtra)
+```
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+## wapoR - Acces to the FAO GISManager API from R
+
+This package includes functionalities to search for datasets in different 
+collections of the FAO GISManager API, query the metadata of included products 
+and finally download GTiff files of the desired spatio-temporal extent to your local machine.
+This package is at an experimental state and currently only supports the download
+of raster files. 
+
+To install the package run:
+
+```{r install, eval = FALSE}
+remotes::install_github("goergen95/wapoR")
+```
+
+Once installed, you can load the library and start looking at the available
+collections.
+
+```{r collections}
+library(wapoR)
+collections = wapor_collections()
+collections
+```
+
+In its current state, the package mainly supports products from the WAPOR collections.
+For some other collection it is also possible to query and download raster datasets.
+However, for some of the collections errors will be returned if queried.
+Currently, you might run into errors for these collections:
+ - C2ATLAS 
+ - DLMF
+ - NASA
+ - NATURAL_EARTH
+ 
+To query the available products within the collections we can run `wapor_products("<collection_name>").
+
+```{r products}
+products = wapor_products("WAPOR_2")
+length(products)
+str(products[1:3], max.level = 2)
+
+``` 
+
+In the WAPOR_2 collection we have a total number of `r length(products)`. 
+As you can see from the structured output, each element in the list object represents 
+one product, e.g. `r products[[1]]$product$code`. In the lower level you find
+tow distinct objects, one called product the other one called meta.
+In the product object you will get some general information about the specific product.
+
+
+```{r info}
+kable(products[[1]]$product)
+```
+
+In the meta object you will find more specific information such as the spatio-temporal
+extent of the dataset as well as some information on the methodology and data types.
+
+```{r meta}
+str(products[[1]]$meta)
+```
+
+With these information combined, we can start downloading some data.
+Let's say we are interested in the Gross Biomass Water Productivity (GPWP) during
+the first season of the year 2015 in Uganda. Let's prepare a call to download this 
+data.
+
+```{r download, eval = FALSE}
+library(sf)
+library(rnaturalearth)
+
+ugn = ne_countries(country = "Uganda", returnclass = "sf")
+
+collection = "WAPOR_2"
+product = "L2_GBWP_S" # product code
+begin = as.Date("2015-01-01") # begin date is inclusive
+end = as.Date("2016-01-01") # end date is exclusive
+dimensions = list(SEASON = c("S1", "S2")) # GBWP only has dimension SEASON - S1 and S2
+key = "<your_personal_API_Key" # can be obtained in the profile section of the WAPOR website 
+                              # at https://wapor.apps.fao.org
+
+# run the query command - see ?wapor_queryRaster() for more information
+wapor_queryRaster(collection = collection,
+                  product = product,
+                  dimensions = dimensions,
+                  aoi = ugn,
+                  begin = begin,
+                  end = end, 
+                  APIkey = APIkey, 
+                  outdir = ".", 
+                  cutline = FALSE, 
+                  tiled = TRUE, 
+                  compressed = TRUE, 
+                  overviews = TRUE)
+
+```
+
