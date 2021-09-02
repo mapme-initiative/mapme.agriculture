@@ -1,0 +1,25 @@
+{
+  "description" : "WAPOR Gross Primary Water Productivity data set",
+  "references" : "https://wapor.apps.fao.org/home/WAPOR_2/1",
+  "tags" : ["FAO", "WAPOR", "GBWP"],
+  "pattern" : ".+\\.tif",
+  "images" : {
+    "pattern" : ".*GBWP_.{4}_(.{4}_YEAR)\\.tif"
+  },
+  "datetime" : {
+    "pattern" : ".*GBWP_.{4}_(.{4})_YEAR\\.tif",
+    "format" : "%Y"
+  },
+  "bands": {
+    "GBWP_S1" : {
+      "pattern" : ".+S1.*",
+      "nodata" : -9999,
+      "scale" : 0.001
+    },
+    "GBWP_S2" : {
+      "pattern" : ".+S2.*",
+      "nodata" : -9999,
+      "scale" : 0.001
+    }
+  }
+}

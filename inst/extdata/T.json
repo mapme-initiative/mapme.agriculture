@@ -1,0 +1,20 @@
+{
+  "description" : "WAPOR Transpiration data set",
+  "references" : "https://wapor.apps.fao.org/home/WAPOR_2/1",
+  "tags" : ["FAO", "WAPOR", "T"],
+  "pattern" : ".+\\.tif",
+  "images" : {
+    "pattern" : ".*T_D_(.{10}_DEKAD)\\.tif"
+  },
+  "datetime" : {
+    "pattern" : ".*T_D_(.{10})_DEKAD\\.tif",
+    "format" : "%Y-%m-%d"
+  },
+  "bands": {
+    "T" : {
+      "pattern" : ".+T_D.*",
+      "nodata" : 255,
+      "scale" : 0.1
+    }
+  }
+}

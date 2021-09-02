@@ -1,0 +1,49 @@
+template:
+  params:
+    bootstrap: 4
+    bootswatch: flatly
+
+home:
+  title: An R package for processing FAO WaPOR data
+  description: This package let's you download data from the FAO WaPOR API and calculate indcices on agricultural productivity
+  links:
+  - text: Learn more about MAPME
+    href: https://mapme-initiative.org/
+  - text: Read the Open Source Guide
+    href: https://github.com/mapme-initiative/mapme.osg
+  - text: Browse source code
+    href: https://github.com/mapme-initiative/mapme.agriculture
+  - text: File an issue
+    href: https://github.com/mapme-initiative/mapme.agriculture/issues
+  - text: Learn more about developers
+    href: https://maptailor.net/
+destination: docs
+
+navbar:
+  components:
+   home: ~
+   articles:
+      text: Articles
+      menu:
+        - text: Introduction
+          href: articles/introduction.html
+        - text: Installation
+          href: articles/installation.html
+        - text: Terminology
+          href: articles/terminology.html
+        - text: Workflow
+          href: articles/workflow.html
+        - text: Calculate Productivity Indicators
+          href: articles/usage.html
+  github:
+    icon: fab fa-github fa-lg
+    href: https://github.com/mapme-initiative/mapme.agriculture
+
+authors:
+  Darius Görgen:
+    href: http://dariusgoergen.com/
+  Fabian Löw:
+    href: https://maptailor.net/
+  MAPME-Initiative:
+    href: https://mapme-initiative.org/
+

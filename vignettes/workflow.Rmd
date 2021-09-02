@@ -1,0 +1,53 @@
+---
+title: "Workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 5,
+  fig.height = 5
+)
+```
+
+In the following, the most important steps of the indicator calculation with
+of `{mapme.agriculture}` are described; the figure below guides the reader through these
+descriptions. The goal of this tutorial is to use the data provided by FAO's WaPOR
+portal to calculate a number of indicators concerned with agricultural productivity. 
+Because a key data set, Net Biomass Water Productivity (NBWP), is not provided
+at a spatial resolution of 100 meters, its calculation is an important step
+for any analysis. Subsequently, a number of different indicators area automatically
+calculated for either all pixels in the study area of for user-defined land-use 
+classes. The output are a number of raster files, each representing one of the
+indicators. Optionally, zonal statistics for field locations can be extracted
+which are handed over as multiple sf-objects that can be used in further analysis.
+
+-  query and download basic input data sets from the WaPOR API for a given spatio-temporal extent
+-  calculate the sum of seasonal transpiration and use it to calculate NBWP
+-  calculate raster sets of a number of selected indicators potentially restriced to certain land-use classes
+-  optionally, extract zonal statistics from these indicators to use them in further analysis
+
+```{r, echo = FALSE}
+library(DiagrammeR)
+
+mermaid("
+  graph TB
+
+    classDef default fill:#c2dddd,stroke-width:2px,stroke:#034858;
+ 
+    A(Query & download input data)
+    B(Calculate seasonal NBWP)
+    C(Calculate prodictivity indicators)
+    D(Extract zonal statistics)
+    A-->B
+    B-->C
+    C-->D
+")
+```
+

@@ -1,0 +1,68 @@
+#TOC::before {
+  content: "";
+  display: block;
+  height: 200px;
+  margin: 2em 20px 40px 20px;
+  background-image: url("../assets/mapme-logo.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus{
+    background-color: #1b8f8e;
+    border-color: #1b8f8e;
+    color: #034858;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+    background-color: #c2dddd;
+    color: #034858;
+}
+
+a {
+  color: #034858;
+  text-decoration: none;
+  background-color: transparent
+}
+
+a:hover {
+  color: #d78d30;
+  text-decoration: underline
+}
+
+.btn-default {
+    background-color: #034858;
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+  color: #fff;
+  background-color: #1b8f8e;
+  border-color: #1b8f8e
+}
+
+.btn-default:active:focus {
+  color: #fff;
+  background-color: #c2dddd;
+  border-color: #c2dddd
+}
+
+.list-group-item.active {
+  background-color: #034858;
+}
+
+.list-group-item.active:hover {
+  color: #034858;
+  background-color: #c2dddd
+}
+
+
+
+

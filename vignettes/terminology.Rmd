@@ -1,0 +1,90 @@
+---
+title: "Terminology"
+date: "Last modified: `r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{terminology}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Here we present a quick introduction to the main data sets and concepts
+relevant to the suage of the `{mapme.agriculture}` package. Note, that
+these are limited descriptions to the usage of this package and if you would like 
+to learn more make sure to visit the Catalog section at the [WaPOR website](https://wapor.apps.fao.org/)
+or read methdological documents of the [WaPOR products](http://www.fao.org/in-action/remote-sensing-for-water-productivity/resources/en/).
+
+- Phenology: The phenology layer (PHE) contains information about the start, 
+length, and end of a season for each pixel. The information is obtained by
+analysing the NDVI curves of a pixel over the course of a growing season. Depending
+on the location, a growing season might start in the year before the current
+observation year and it might as well end in the following year. Additionally,
+certain pixels might show a double season, that is two vegetation cycles after 
+one another. This is indicated by two different data layers, one for the first and
+one for the seconds season. The values indicate the decad, i.e. ten consecutive
+days, the start or end of a season was detected. For any given year, the possible 
+range of values is thus between 1 and 36, that is the first decad in the preceeding
+year or the last decad in the following year.
+
+-  Total Biomass Production (TBP): This layer estimates the total amount of
+produces biomass [kg] in a given pixel for both the first and second season. It 
+is a valuable input to assess how much biomass was produced in a certain location.
+It also serves as an input to the calculation of water productivity, because here
+we are interested in how much water was consumed to produce a certain amount of biomass.
+
+-  Transpiration (T): This data layer indicates the amount of water that transpirated
+by plants per pixel. It is a single estimate, excluding other sources of evaporating
+water such as the interception storage and soil evaporation. It this can be used
+as a measure to calculate how much water was directly consumed by plants to produce
+a certain amount of biomass. 
+
+-  Gross Biomass Water Productivity (GBWP): This layer is defined as the amount of 
+water (m³) from the interception, plant transpiration and soil evaporation in relation
+to the produced biomass in a given pixel. It is termed cross because soil evaporation
+and interception are not directly linked to plant biomass production. Currently, FAO
+does not provide the net biomass water productivity (NBWP) at 100 meter resoultion,
+that is why `{mapme.agriculture}` makes it possible to calculate it based on the
+total seasonal biomass production (TBP) and the plant transpirations (T) layers. 
+
+- Net Biomass Water Productivity (NBWP): This layer currently is not available
+as an analysis-ready dataset at WaPOR, thus the `{mapme.agriculture}` package
+allows for the calculation of this parameter based on the aformentioned inputs.
+Compared to GBWP it is assumed to produce a better estimate of how much water
+was directly consumed by plants to produce a certain amount of biomass, and indicator
+which is of special relevane in monitoring the impact of project interventions.
+
+-  Land Cover Classification: This data layer delivers a broad classification scheme
+that can be used to focues the analysis on certain types of landscapes. For example,
+the classification scheme includes three different classes for agriculture. These 
+are rainfed and irrigated agriculture as well as fallow fields. These are the most 
+important classes for the `{mapme.agriculture}` package, though the functionality
+can be used to calculated the same indicators also for other classes.
+
+Based on the above mentioned parameters the `{mapme.agriculture}` packages allows
+users to calculate a number of indicators that can be used to asses a project's
+impact over time. What follows are the definitions of the indicators that are 
+currently supported by the package:
+
+-  Land Cover Median: The median value of the landcover class per pixel
+-  Land Cover Mode: The mode value of the landcover class per pixel
+-  Land Cover Breakpoint: The index of the year where the landcover class first shows a persistend change
+-  Presence of Double Season: A binary encoding of the presence of two seasons per pixel
+-  Total Biomass Production: Information on the total biomass production (kg)
+-  Gross Biommas Water Productivity: Information on the gross biomass water productivity
+-  Net Biomass Water Productivity: Information on the net biomass water productivity
+-  Land Productivity (global): For all parameters (TBP, GBWP, NBWP) the relation
+of a pixels productivity compared to the 90%-percentile over the complete timeseries is caluclated.
+Values <1 indicate that a pixels produced lower values and values >1 indicated pixels
+that produced higher values than that threshold
+- Land Productivity (yearly): the same as above except that the 90%-percentile is not
+calculated globally put a different threshold based on the current year is calculated.
+-  Linear Trends: Linear trends including an estimate of the trend as well as the 
+associated p-value is calculated for all input parameters (TBP, GBWP, NBWP) as well as for both land
+productivity indicators (global and yearly).

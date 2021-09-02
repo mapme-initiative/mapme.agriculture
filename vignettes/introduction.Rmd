@@ -1,0 +1,91 @@
+---
+title: "Introduction"
+date: "Last modified: `r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: mapme.agriculture.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Objectives 
+
+`{mapme.agriculture}` facilitates the analysis of agricultural productivity based on
+the [FAO WaPOR data](https://wapor.apps.fao.org/home/WAPOR_2/1) [@FAO_2019]. It allows for the 
+calculation of Net Biomass Water Productivity, an indicator currently not provided 
+at 100 meter resolution that is expected to be more related to crop productivity than 
+its gross estimate counterpart, and additional indicators of water use efficency
+and agricultural productivity.
+`{mapme.agriculture}` is meant for users with at least some basic GIS and Remote 
+Sensing background. It supports the calculation of a number of indicators concerned
+with agricultural productivity. Users will need at least basic knowledge regarding 
+the concepts behind operating, (pre-) processing and analyzing EO data. The 
+package retrieves available data from an REST API via json-based queries. 
+Additionally, it provides functions to calculate a number of indicators that can 
+be used to analyse the dynamics of agricultural productivity. Because the available 
+datasets can be hard to understand we will present the most important data for 
+the calculation of the supported indices in more detail below.
+
+
+## `{mapme.agriculture}` package
+
+`{mapme.agriculture}` combines a convenient download API to query and download
+FAO WaPOR data for any location on the African continent and the calculation
+of agricultural productivity indicators based on these data sets. There is 
+an implemented functionality to calculate the Net Biomass Water Productivity (NBWP)
+which sheds a more accurate light on the production of biomass in terms of water used.
+The set of indicators that are available then describe pixel-based productivity
+in relation to the overall productivity of the area of interest. These pixel-wise
+information can then be aggregated, e.g. based on field geolocations, by 
+calculating zonal statistics. Additionally, trends and diff-in-diff comparisons
+are supported to describe the dynamics of the indicators over time. 
+
+
+## Functionalities
+
+Currently, the package offers several functionalities, which should ideally be 
+used in a consecutive manner in order to realize the image preparation workflow:
+
+-  query and download input data for a specific space-time location 
+-  calculate seasonal transpiration and net biomass water productivity
+-  process all input data to calculate productivity indicators
+-  optionally extract zonal statistics for areas of interest
+
+
+## Inputs, Outputs
+
+-  the bounding box of an area of interest and
+the temporal window for which to download and process FAO WaPOR data
+- optionally, if  zonal statistics shall be extracted, areas shall be handed to the function as
+an sf-object
+-  the output of the functionality are then processed raster files in GeoTiff format
+for all or certain land cover categories
+- optionally the zonal statistics of all indicators are provided as sf-objects. 
+
+## Limitations
+
+-  the package focuses on the calculation of above mentioned indicators based on the
+100 meter resolution data sets. While other data can be downloaded with this package,
+it is not advised to use these data for subsequent analysis with the package. 
+-  In the case you wish to analyze other datasets you can use the download functionality
+provided here, but you will have to write your own analysis scripts.
+-  The available indicators are limited to indicators that are easy to calculate
+without the need of external datasets but deliver important information. In case
+you are interested in more elaborated indicators concerned with water balancing
+be advised to check the Python tool [WaporTranslator](https://github.com/TimHessels/WaporTranslator).
+- The landcover classification is based on the year 2015. Only rainfed and irrigated
+agriculture are determined on a yearly basis. Thus the data is generally not suitable
+for a land cover change analysis except for the two mentioned classes. 
+
+We are planning to add new features and to extend the functionality of `{mapme.vegetation}`,
+and to address these limitations best possible.
+
+# References

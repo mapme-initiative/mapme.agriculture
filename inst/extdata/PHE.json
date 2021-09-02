@@ -1,0 +1,31 @@
+{
+  "description" : "WAPOR Phenology data set",
+  "references" : "https://wapor.apps.fao.org/home/WAPOR_2/1",
+  "tags" : ["FAO", "WAPOR", "PHE"],
+  "pattern" : ".+\\.tif",
+  "images" : {
+    "pattern" : ".*PHE_.{8}_(.{4}_YEAR)\\.tif"
+  },
+  "datetime" : {
+    "pattern" : ".*PHE_.{8}_(.{4})_YEAR\\.tif",
+    "format" : "%Y"
+  },
+  "bands": {
+    "SOS_S1" : {
+      "pattern" : ".+S1_SOS.*",
+      "nodata" : 255
+    },
+    "SOS_S2" : {
+      "pattern" : ".+S2_SOS.*",
+      "nodata" : 255
+    },
+    "EOS_S1" : {
+      "pattern" : ".+S1_EOS.*",
+      "nodata" : 255
+    },
+    "EOS_S2" : {
+      "pattern" : ".+S2_EOS.*",
+      "nodata" : 255
+    }
+  }
+}

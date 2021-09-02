@@ -1,0 +1,38 @@
+Package: mapme.agriculture
+Title: Access to FAO WaPOR data for agricultural monitoring
+Version: 0.0.0.9000
+Authors@R:  c(person("MAPME-Initiative", role = c("cre", "cph"), email = "contact@mapme-initiative.org"),
+             person(given = "Darius", family = "Görgen", role = "aut", email = "darius.goergen@maptailor.net"))
+Description: This package facilitates the analysis of agricultural productivity. It queries the FAO 
+     GISManager API at <https://io.apps.fao.org/gismgr/api/v1> for different raster datasets 
+     concerned with water use efficency in the agricultural sector for which users
+     need to order a valid API key. Several indicators to measure the spatio-temporal 
+     dynamic of water use efficency can be derived to answer dedicated questions for 
+     project evaluations. The package is part of the MAPME toolset at <https://github.com/mapme-initiative> 
+     and was developed by MapTailor Geospatial Consulting <https://maptailor.net/>.
+     It is in no way associated with FAO or the WaPOR project.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    httr,
+    jsonlite,
+    curl,
+    attempt,
+    purrr,
+    sf,
+    stringr,
+    magrittr,
+    terra,
+    trend,
+    zoo,
+    dplyr,
+    tidyr
+Suggests:
+    rmarkdown,
+    knitr,
+    rnaturalearth,
+    DiagrammeR
+VignetteBuilder: knitr

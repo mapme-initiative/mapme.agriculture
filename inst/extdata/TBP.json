@@ -1,0 +1,25 @@
+{
+  "description" : "WAPOR Total Biomass Production data set",
+  "references" : "https://wapor.apps.fao.org/home/WAPOR_2/1",
+  "tags" : ["FAO", "WAPOR", "TBP"],
+  "pattern" : ".+\\.tif",
+  "images" : {
+    "pattern" : ".*TBP_S_.{2}_(.{4}_YEAR)\\.tif"
+  },
+  "datetime" : {
+    "pattern" : ".*TBP_S_.{2}_(.{4})_YEAR\\.tif",
+    "format" : "%Y"
+  },
+  "bands": {
+    "TBP_S1" : {
+      "pattern" : ".+TBP_S_S1.*",
+      "nodata" : -9999,
+      "scale" : 10
+    },
+    "TBP_S2" : {
+      "pattern" : ".+TBP_S_S2.*",
+      "nodata" : -9999,
+      "scale" : 10
+    }
+  }
+}
