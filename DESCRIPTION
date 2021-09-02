@@ -34,5 +34,6 @@ Suggests:
     rmarkdown,
     knitr,
     rnaturalearth,
-    DiagrammeR
+    DiagrammeR,
+    pkgdown
 VignetteBuilder: knitr
