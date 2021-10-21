@@ -1,7 +1,7 @@
 Package: mapme.agriculture
 Title: Access to FAO WaPOR data for agricultural monitoring
 Version: 0.0.0.9000
-Authors@R:  c(person("MAPME-Initiative", role = c("cre", "cph"), email = "contact@mapme-initiative.org"),
+Authors@R: c(person("MAPME-Initiative", role = c("cre", "cph"), email = "contact@mapme-initiative.org"),
              person(given = "Darius", family = "Görgen", role = "aut", email = "darius.goergen@maptailor.net"))
 Description: This package facilitates the analysis of agricultural productivity. It queries the FAO 
      GISManager API at <https://io.apps.fao.org/gismgr/api/v1> for different raster datasets 
@@ -15,7 +15,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Imports: 
     httr,
     jsonlite,
