@@ -3,7 +3,7 @@ title: "Terminology"
 date: "Last modified: `r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{terminology}
+  %\VignetteIndexEntry{Terminology}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

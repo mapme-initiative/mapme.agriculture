@@ -189,7 +189,7 @@ wapor_extract <- function(input_files, aoi){
   modal_values %<>%
     pivot_longer(cols = 2:ncol(modal_values), names_to = "stat") %>%
     group_by(ID, stat) %>%
-    summarise(value = terra::modal(value, na.rm = T)) %>%
+    summarise(value = as.numeric(sort(table(value), decreasing  = T))) %>%
     ungroup()
   modal_values$indicator = "lcc_modal"
   modal_values$stat = NULL

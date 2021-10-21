@@ -74,7 +74,7 @@ products = list("TBP" = "L2_TBP_S",
 begin = as.Date("2009-01-01") # begin date is inclusive
 end = as.Date("2015-01-01") # end date is exclusive
 APIkey = "<-your key goes here->" # can be obtained in the profile section of the WAPOR website 
-dir.creat("data")
+dir.create("data")
 
 for(i in 1:length(products)){ # download products in a loop
   wapor_queryRaster(collection = collection,
@@ -178,7 +178,7 @@ index_files = wapor_indices(input_files2,
                             overwrite = TRUE)
 ```
 
-Let's visualize both of the land productivity indictators for one of the selected
+Let's visualize both of the land productivity indicators for one of the selected
 land cover classes. We will start with visualizing the global indicator.
 
 ```{r plot-global}
