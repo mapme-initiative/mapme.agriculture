@@ -1,8 +1,8 @@
 Package: mapme.agriculture
 Title: Access to FAO WaPOR data for agricultural monitoring
 Version: 0.0.0.9000
-Authors@R: c(person("MAPME-Initiative", role = c("cre", "cph"), email = "contact@mapme-initiative.org"),
-             person(given = "Darius", family = "Görgen", role = "aut", email = "darius.goergen@maptailor.net"))
+Authors@R: c(person(given = "Darius", family = "Görgen", role = c("cre", "aut"), email = "darius.goergen@maptailor.net"),
+             person("MAPME-Initiative", role = c("cph", "fnd")))
 Description: This package facilitates the analysis of agricultural productivity. It queries the FAO 
      GISManager API at <https://io.apps.fao.org/gismgr/api/v1> for different raster datasets 
      concerned with water use efficency in the agricultural sector for which users

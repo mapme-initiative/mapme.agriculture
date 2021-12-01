@@ -1,7 +1,12 @@
 template:
-  params:
-    bootstrap: 4
-    bootswatch: flatly
+  bootstrap: 5
+  bootswatch: flatly
+  bslib:
+    fg: "#004658"
+    bg: "#ffffff"
+    primary: "#004658"
+    link-color: "#008c8d"
+    link-hover-color: "#de9433"
 
 home:
   title: An R package for processing FAO WaPOR data
@@ -42,8 +47,6 @@ navbar:
 authors:
   Darius Görgen:
     href: http://dariusgoergen.com/
-  Fabian Löw:
-    href: https://maptailor.net/
   MAPME-Initiative:
     href: https://mapme-initiative.org/
 

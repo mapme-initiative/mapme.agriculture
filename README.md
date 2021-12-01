@@ -3,6 +3,7 @@
 
 <!-- badges: start -->
 ![check](https://github.com/mapme-initiative/mapme.agriculture/workflows/R-CMD-check/badge.svg)
+[![R-CMD-check](https://github.com/mapme-initiative/mapme.agriculture/workflows/R-CMD-check/badge.svg)](https://github.com/mapme-initiative/mapme.agriculture/actions)
 <!-- badges: end -->
 
 ## About MAPME

@@ -1,5 +1,6 @@
 ---
 title: "Workflow"
+date: "Last modified: `r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Workflow}
