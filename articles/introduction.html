@@ -40,7 +40,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div id="navbar" class="collapse navbar-collapse ms-2">
+    <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
@@ -66,11 +66,14 @@
     
   </div>
 </nav><div class="container template-article">
+
+
+
 <script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <main id="main"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Introduction</h1>
             
-            <h4 data-toc-skip class="date">Last modified: 2022-01-09</h4>
+            <h4 data-toc-skip class="date">Last modified: 2022-01-16</h4>
       
       
       <div class="d-none name"><code>introduction.Rmd</code></div>
@@ -78,20 +81,20 @@
 
     
     
-<div class="section level2">
-<h2 id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a>
-</h2>
+<div class="section level3">
+<h3 id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a>
+</h3>
 <p><code>{mapme.agriculture}</code> facilitates the analysis of agricultural productivity based on the <a href="https://wapor.apps.fao.org/home/WAPOR_2/1" class="external-link">FAO WaPOR data</a> <span class="citation">(FAO 2019)</span>. It allows for the calculation of Net Biomass Water Productivity, an indicator currently not provided at 100 meter resolution that is expected to be more related to crop productivity than its gross estimate counterpart, and additional indicators of water use efficency and agricultural productivity. <code>{mapme.agriculture}</code> is meant for users with at least some basic GIS and Remote Sensing background. It supports the calculation of a number of indicators concerned with agricultural productivity. Users will need at least basic knowledge regarding the concepts behind operating, (pre-) processing and analyzing EO data. The package retrieves available data from an REST API via json-based queries. Additionally, it provides functions to calculate a number of indicators that can be used to analyse the dynamics of agricultural productivity. Because the available datasets can be hard to understand we will present the most important data for the calculation of the supported indices in more detail below.</p>
 </div>
-<div class="section level2">
-<h2 id="mapme-agriculture-package">
+<div class="section level3">
+<h3 id="mapme-agriculture-package">
 <code>{mapme.agriculture}</code> package<a class="anchor" aria-label="anchor" href="#mapme-agriculture-package"></a>
-</h2>
+</h3>
 <p><code>{mapme.agriculture}</code> combines a convenient download API to query and download FAO WaPOR data for any location on the African continent and the calculation of agricultural productivity indicators based on these data sets. There is an implemented functionality to calculate the Net Biomass Water Productivity (NBWP) which sheds a more accurate light on the production of biomass in terms of water used. The set of indicators that are available then describe pixel-based productivity in relation to the overall productivity of the area of interest. These pixel-wise information can then be aggregated, e.g. based on field geolocations, by calculating zonal statistics. Additionally, trends and diff-in-diff comparisons are supported to describe the dynamics of the indicators over time.</p>
 </div>
-<div class="section level2">
-<h2 id="functionalities">Functionalities<a class="anchor" aria-label="anchor" href="#functionalities"></a>
-</h2>
+<div class="section level3">
+<h3 id="functionalities">Functionalities<a class="anchor" aria-label="anchor" href="#functionalities"></a>
+</h3>
 <p>Currently, the package offers several functionalities, which should ideally be used in a consecutive manner in order to realize the image preparation workflow:</p>
 <ul>
 <li>query and download input data for a specific space-time location</li>
@@ -100,9 +103,9 @@
 <li>optionally extract zonal statistics for areas of interest</li>
 </ul>
 </div>
-<div class="section level2">
-<h2 id="inputs-outputs">Inputs, Outputs<a class="anchor" aria-label="anchor" href="#inputs-outputs"></a>
-</h2>
+<div class="section level3">
+<h3 id="inputs-outputs">Inputs, Outputs<a class="anchor" aria-label="anchor" href="#inputs-outputs"></a>
+</h3>
 <ul>
 <li>the bounding box of an area of interest and the temporal window for which to download and process FAO WaPOR data</li>
 <li>optionally, if zonal statistics shall be extracted, areas shall be handed to the function as an sf-object</li>
@@ -110,9 +113,9 @@
 <li>optionally the zonal statistics of all indicators are provided as sf-objects.</li>
 </ul>
 </div>
-<div class="section level2">
-<h2 id="limitations">Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a>
-</h2>
+<div class="section level3">
+<h3 id="limitations">Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a>
+</h3>
 <ul>
 <li>the package focuses on the calculation of above mentioned indicators based on the 100 meter resolution data sets. While other data can be downloaded with this package, it is not advised to use these data for subsequent analysis with the package.</li>
 <li>In the case you wish to analyze other datasets you can use the download functionality provided here, but you will have to write your own analysis scripts.</li>
@@ -121,9 +124,9 @@
 </ul>
 <p>We are planning to add new features and to extend the functionality of <code>{mapme.vegetation}</code>, and to address these limitations best possible.</p>
 </div>
-<div class="section level1 unnumbered">
-<h1 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h1>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references">
 <div id="ref-FAO_2019">
 <p>FAO. 2019. “WaPOR Database Methodology: Level 3 Data – Using Remote Sensing in Support of Solutions to Reduce Agricultural Water Productivity Gaps,” 68pp. <a href="http://www.fao.org/3/ca3750en/ca3750en.pdf" class="external-link">http://www.fao.org/3/ca3750en/ca3750en.pdf</a>.</p>
@@ -143,7 +146,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
     </footer>
